@@ -1,9 +1,6 @@
 ﻿using AutoMapper;
-using Azure;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using RestaurantReservationDb.domain;
 using RetaurantReservationAPI.Models;
 using RetaurantReservationAPI.Services;
