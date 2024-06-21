@@ -45,7 +45,7 @@ namespace RetaurantReservationAPI.Controllers
             var managers = await _repo.GetManagersAsync();
             return Ok(_mapper.Map<IEnumerable<EmployeeDto>>(managers));
         }
-        [HttpPost("{restaurantId}/{employeeId}}")]
+        [HttpPost("{restaurantId}/{employeeId}")]
         public async Task<ActionResult<EmployeeDto>> AddEmployee(int restaurantId, [FromBody] EmployeeDto employee)
         {
             if (!await _repo.RestaurantExists(restaurantId))
@@ -58,7 +58,7 @@ namespace RetaurantReservationAPI.Controllers
             var employeeDto = _mapper.Map<EmployeeDto>(finalemp);
             return CreatedAtAction("GetEmployee", new { id = finalemp.EmployeeId }, employeeDto);
         }
-        [HttpPut("{restaurantId}/{employeeId}}")]
+        [HttpPut("{restaurantId}/{employeeId}")]
         public async Task<ActionResult> UpdateEmployee(int restaurantId, int employeeid, EmployeeDto empDto)
         {
             if (!await _repo.RestaurantExists(restaurantId))
@@ -75,7 +75,7 @@ namespace RetaurantReservationAPI.Controllers
             return NoContent();
 
         }
-        [HttpPatch("{restaurantId}/{employeeId}}")]
+        [HttpPatch("{restaurantId}/{employeeId}")]
         public async Task<ActionResult> PartiallyUpdateEmployee(int restaurantId, int employeeid, JsonPatchDocument<EmployeeDto> patchDocument)
         {
             if (!await _repo.RestaurantExists(restaurantId))
@@ -103,7 +103,7 @@ namespace RetaurantReservationAPI.Controllers
             return NoContent();
 
         }
-        [HttpDelete("{restaurantId}/{employeeId}}")]
+        [HttpDelete("{restaurantId}/{employeeId}")]
         public async Task<ActionResult> DeleteEmployee(int restaurantId,int employeeid)
         {
             if (!await _repo.RestaurantExists(restaurantId))
@@ -118,6 +118,18 @@ namespace RetaurantReservationAPI.Controllers
             _repo.DeleteEmployee(emp);
             await _repo.SaveChangesAsync();
             return NoContent();
+
+        }
+        [HttpGet("{imployeeid}/average-order-amount")]
+        public async Task<ActionResult> GetAverageOrderAmountForEmployee(int imployeeid)
+        {
+            var emp = await _repo.GetEmployeeByIdAsync(imployeeid);
+            if (emp is null)
+            {
+                return NotFound();
+            }
+            var result = await _repo.GetAverageOrderAmountForEmployeeWithEmployeeId(emp.EmployeeId);
+            return Ok(result);
 
         }
 

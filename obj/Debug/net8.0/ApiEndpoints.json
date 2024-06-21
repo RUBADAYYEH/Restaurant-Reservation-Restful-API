@@ -21,37 +21,6 @@
   },
   {
     "ContainingType": "RetaurantReservationAPI.Controllers.EmployeesController",
-    "Method": "AddEmployee",
-    "RelativePath": "api/Employees",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "restaurantId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "employee",
-        "Type": "RetaurantReservationAPI.Models.EmployeeDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "RetaurantReservationAPI.Models.EmployeeDto",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "RetaurantReservationAPI.Controllers.EmployeesController",
     "Method": "GetEmployee",
     "RelativePath": "api/Employees/{id}",
     "HttpMethod": "GET",
@@ -75,6 +44,131 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "RetaurantReservationAPI.Controllers.EmployeesController",
+    "Method": "GetAverageOrderAmountForEmployee",
+    "RelativePath": "api/Employees/{imployeeid}/average-order-amount",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "imployeeid",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RetaurantReservationAPI.Controllers.EmployeesController",
+    "Method": "AddEmployee",
+    "RelativePath": "api/Employees/{restaurantId}/{employeeId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "restaurantId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "employee",
+        "Type": "RetaurantReservationAPI.Models.EmployeeDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "employeeId",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "RetaurantReservationAPI.Models.EmployeeDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "RetaurantReservationAPI.Controllers.EmployeesController",
+    "Method": "UpdateEmployee",
+    "RelativePath": "api/Employees/{restaurantId}/{employeeId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "restaurantId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "employeeid",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "empDto",
+        "Type": "RetaurantReservationAPI.Models.EmployeeDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RetaurantReservationAPI.Controllers.EmployeesController",
+    "Method": "PartiallyUpdateEmployee",
+    "RelativePath": "api/Employees/{restaurantId}/{employeeId}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "restaurantId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "employeeid",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "patchDocument",
+        "Type": "Microsoft.AspNetCore.JsonPatch.JsonPatchDocument\u00601[[RetaurantReservationAPI.Models.EmployeeDto, RetaurantReservationAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RetaurantReservationAPI.Controllers.EmployeesController",
+    "Method": "DeleteEmployee",
+    "RelativePath": "api/Employees/{restaurantId}/{employeeId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "restaurantId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "employeeid",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "RetaurantReservationAPI.Controllers.EmployeesController",
